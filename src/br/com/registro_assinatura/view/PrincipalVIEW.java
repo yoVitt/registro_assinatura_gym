@@ -55,6 +55,11 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         menuCadastro.add(itemMenuAssinante);
 
         itemMenuProduto.setText("Produto");
+        itemMenuProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuProdutoActionPerformed(evt);
+            }
+        });
         menuCadastro.add(itemMenuProduto);
 
         menuBar.add(menuCadastro);
@@ -99,6 +104,10 @@ public class PrincipalVIEW extends javax.swing.JFrame {
     private void itemMenuAssinanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuAssinanteActionPerformed
         abreRegistroAssinante();
     }//GEN-LAST:event_itemMenuAssinanteActionPerformed
+
+    private void itemMenuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuProdutoActionPerformed
+        abreProdutoVIEW();
+    }//GEN-LAST:event_itemMenuProdutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,6 +158,13 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         this.desktopPane.add(registroAssinante);
         registroAssinante.setVisible(true);
         registroAssinante.setPosicao();
+    }
+    
+    private void abreProdutoVIEW(){
+        ProdutoVIEW produtoVIEW = new ProdutoVIEW();
+        this.desktopPane.add(produtoVIEW);
+        produtoVIEW.setVisible(true);
+        produtoVIEW.setPosicao();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

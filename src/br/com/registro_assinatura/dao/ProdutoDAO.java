@@ -36,7 +36,7 @@ public boolean inserirProduto(ProdutoDTO produtoDTO){
                 + "custo_prod, venda_prod ) values ( "
                 + "'" + produtoDTO.getNome_prod()+ "', "
                 + "'" + produtoDTO.getDesc_prod()+ "', "
-                + "'" + produtoDTO.getSku_prod()+ "', "
+                + "'" + produtoDTO.getEan_prod()+ "', "
                 + produtoDTO.getCusto_prod()+ ", "
                 + produtoDTO.getVenda_prod()+ ")";
         
@@ -59,7 +59,7 @@ public boolean alterarProduto(ProdutoDTO produtoDTO){
         String comando = "Update produto set "
                 + "nome_prod = '" + produtoDTO.getNome_prod()+ "', "
                 + "desc_prod = '" + produtoDTO.getDesc_prod()+ "', "
-                + "sku_prod = '" + produtoDTO.getSku_prod()+ "', "
+                + "sku_prod = '" + produtoDTO.getEan_prod()+ "', "
                 + "custo_prod = " + produtoDTO.getCusto_prod()+ ", "
                 + "venda_prod = " + produtoDTO.getVenda_prod()+ " "
                 + "where id_prod = " + produtoDTO.getId_prod();

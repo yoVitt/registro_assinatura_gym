@@ -18,8 +18,9 @@ public class ProdutoDTO {
         this.id_prod = id_prod;
     }
 
-    private String nome_prod, desc_prod, sku_prod;
-    private int custo_prod, venda_prod, id_prod;
+    private String nome_prod, desc_prod, ean_prod;
+    private int id_prod;
+    private double custo_prod, venda_prod;
     
     public String getNome_prod() {
         return nome_prod;
@@ -37,27 +38,27 @@ public class ProdutoDTO {
         this.desc_prod = desc_prod;
     }
 
-    public String getSku_prod() {
-        return sku_prod;
+    public String getEan_prod() {
+        return ean_prod;
     }
 
-    public void setSku_prod(String sku_prod) {
-        this.sku_prod = sku_prod;
+    public void setEan_prod(String ean_prod) {
+        this.ean_prod = ean_prod;
     }
 
-    public int getCusto_prod() {
+    public double getCusto_prod() {
         return custo_prod;
     }
 
-    public void setCusto_prod(int custo_prod) {
+    public void setCusto_prod(double custo_prod) {
         this.custo_prod = custo_prod;
     }
 
-    public int getVenda_prod() {
+    public double getVenda_prod() {
         return venda_prod;
     }
 
-    public void setVenda_prod(int venda_prod) {
+    public void setVenda_prod(double venda_prod) {
         this.venda_prod = venda_prod;
     }
 
