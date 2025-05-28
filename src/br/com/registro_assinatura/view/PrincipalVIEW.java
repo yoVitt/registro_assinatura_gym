@@ -7,6 +7,10 @@ package br.com.registro_assinatura.view;
 
 import javax.swing.JOptionPane;
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Aluno

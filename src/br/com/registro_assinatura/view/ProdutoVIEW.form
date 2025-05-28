@@ -152,6 +152,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Novo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNovoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="desc_prod">
       <Events>
@@ -162,6 +165,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalvarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="custo_prod">
       <Events>
@@ -172,6 +178,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Excluir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExcluirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="ean_prod">
       <Events>
@@ -182,6 +191,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="venda_prod">
       <Events>
@@ -192,6 +204,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSairActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
@@ -225,6 +240,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jtl_consultar_prodMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -249,6 +267,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pesq_nome_prod">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesq_nome_prodActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -256,6 +277,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnPesquisarProduto">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarProdutoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

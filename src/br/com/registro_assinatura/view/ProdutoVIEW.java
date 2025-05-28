@@ -45,7 +45,7 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
             produtoDTO.setDesc_prod(desc_prod.getText());
             produtoDTO.setEan_prod(ean_prod.getText());
             produtoDTO.setCusto_prod(Double.parseDouble(custo_prod.getText()));
-            produtoDTO.setVenda_prod(Double.parseDouble(custo_prod.getText()));
+            produtoDTO.setVenda_prod(Double.parseDouble(venda_prod.getText()));
             
             JOptionPane.showMessageDialog(null, produtoCTR.inserirProduto(produtoDTO));
         }catch(Exception e){
@@ -59,7 +59,7 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
             produtoDTO.setDesc_prod(desc_prod.getText());
             produtoDTO.setEan_prod(ean_prod.getText());
             produtoDTO.setCusto_prod(Double.parseDouble(custo_prod.getText()));
-            produtoDTO.setVenda_prod(Double.parseDouble(custo_prod.getText()));
+            produtoDTO.setVenda_prod(Double.parseDouble(venda_prod.getText()));
             
             JOptionPane.showMessageDialog(null, produtoCTR.alterarProduto(produtoDTO));
             
@@ -122,7 +122,7 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
     private void preencheCamposProduto(int id_prod){
         try{
             produtoDTO.setId_prod(id_prod);
-            rs = produtoCTR.consultarProduto(produtoDTO, 2);
+            rs = produtoCTR.consultarProduto(produtoDTO, 1);
             if(rs.next()){
                 limpaCampos();
                 
@@ -171,6 +171,11 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
         jLabel5.setText("Custo V.:");
 
         btnNovo.setText("Novo");
+        btnNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNovoActionPerformed(evt);
+            }
+        });
 
         desc_prod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,6 +184,11 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
         });
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         custo_prod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,6 +197,11 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
         });
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         ean_prod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -195,6 +210,11 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         venda_prod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +223,11 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
         });
 
         btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
         jLabel6.setText("Consulta");
@@ -224,6 +249,11 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
                 "ID", "Nome"
             }
         ));
+        jtl_consultar_prod.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtl_consultar_prodMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtl_consultar_prod);
 
         jLabel1.setText("Nome:");
@@ -234,7 +264,19 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
 
         jLabel3.setText("EAN:");
 
+        pesq_nome_prod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pesq_nome_prodActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Custo P.:");
+
+        btnPesquisarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPesquisarProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -357,6 +399,64 @@ public class ProdutoVIEW extends javax.swing.JInternalFrame {
     private void nome_prodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nome_prodActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nome_prodActionPerformed
+
+    private void btnNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoActionPerformed
+        liberaCampos(true);
+        liberaBotoes(false, true, true, false, true);
+        gravar_alterar = 1;
+    }//GEN-LAST:event_btnNovoActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        if(gravar_alterar == 1){
+            gravar();
+            gravar_alterar = 0;
+        }else{
+            if(gravar_alterar == 2){
+                alterar();
+                gravar_alterar = 0;
+            }else{
+                JOptionPane.showMessageDialog(null, "Erro no sistema!!");
+            }
+        }
+        limpaCampos();
+        liberaCampos(false);
+        liberaBotoes(true, false, false, false, true);
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnPesquisarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarProdutoActionPerformed
+                preencheTabelaProduto(pesq_nome_prod.getText());
+    }//GEN-LAST:event_btnPesquisarProdutoActionPerformed
+
+    private void pesq_nome_prodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesq_nome_prodActionPerformed
+
+    }//GEN-LAST:event_pesq_nome_prodActionPerformed
+
+    private void jtl_consultar_prodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtl_consultar_prodMouseClicked
+        preencheCamposProduto(Integer.parseInt(String.valueOf(
+                jtl_consultar_prod.getValueAt(
+                jtl_consultar_prod.getSelectedRow(), 0))));
+        liberaBotoes(false, true, true, true, true);
+    }//GEN-LAST:event_jtl_consultar_prodMouseClicked
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        excluir();
+        limpaCampos();
+        liberaCampos(false);
+        liberaBotoes(true, false, false, false, true);
+        modelo_jtl_consultar_produto.setNumRows(0);
+    }//GEN-LAST:event_btnExcluirActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpaCampos();
+        liberaCampos(false);
+        modelo_jtl_consultar_produto.setNumRows(0);
+        liberaBotoes(true, false, false, false, true);
+        gravar_alterar=0;
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btnSairActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

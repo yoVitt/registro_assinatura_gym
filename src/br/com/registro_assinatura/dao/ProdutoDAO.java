@@ -29,10 +29,9 @@ public boolean inserirProduto(ProdutoDTO produtoDTO){
         ConexaoDAO.ConnectDB();
         stmt = ConexaoDAO.con.createStatement();
         
-//            private String nome_prod, desc_prod, sku_prod;
-//    private int custo_prod, venda_prod;
+
     
-        String comando = "Insert into produto (nome_prod, desc_prod, sku_prod, "
+        String comando = "Insert into produto (nome_prod, desc_prod, ean_prod, "
                 + "custo_prod, venda_prod ) values ( "
                 + "'" + produtoDTO.getNome_prod()+ "', "
                 + "'" + produtoDTO.getDesc_prod()+ "', "
@@ -54,12 +53,13 @@ public boolean inserirProduto(ProdutoDTO produtoDTO){
 
 public boolean alterarProduto(ProdutoDTO produtoDTO){
     try{
+        ConexaoDAO.ConnectDB();
         stmt = ConexaoDAO.con.createStatement();
         
         String comando = "Update produto set "
                 + "nome_prod = '" + produtoDTO.getNome_prod()+ "', "
                 + "desc_prod = '" + produtoDTO.getDesc_prod()+ "', "
-                + "sku_prod = '" + produtoDTO.getEan_prod()+ "', "
+                + "ean_prod = '" + produtoDTO.getEan_prod()+ "', "
                 + "custo_prod = " + produtoDTO.getCusto_prod()+ ", "
                 + "venda_prod = " + produtoDTO.getVenda_prod()+ " "
                 + "where id_prod = " + produtoDTO.getId_prod();
@@ -109,10 +109,11 @@ public ResultSet consultarProduto(ProdutoDTO produtoDTO, int opcao){
                         "order by p.nome_prod";
             break;
             case 2:
-                comando = "Select p.*, p.nome_for, p.id_for "+
+                comando = "Select p.*, p.nome_prod, p.id_prod "+
                           "from produto p "+
                           "where p.id_for = "+produtoDTO.getId_prod();
             break;
+
         }
             rs = stmt.executeQuery(comando.toUpperCase());
             return rs;
