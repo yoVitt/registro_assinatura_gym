@@ -41,7 +41,8 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         menuCadastro = new javax.swing.JMenu();
         itemMenuAssinante = new javax.swing.JMenuItem();
         itemMenuProduto = new javax.swing.JMenuItem();
-        itemMenuVenda = new javax.swing.JMenu();
+        menuVenda = new javax.swing.JMenu();
+        itemMenuVenda = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -68,8 +69,17 @@ public class PrincipalVIEW extends javax.swing.JFrame {
 
         menuBar.add(menuCadastro);
 
-        itemMenuVenda.setText("Venda");
-        menuBar.add(itemMenuVenda);
+        menuVenda.setText("Venda");
+
+        itemMenuVenda.setText("Vender Produto");
+        itemMenuVenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemMenuVendaActionPerformed(evt);
+            }
+        });
+        menuVenda.add(itemMenuVenda);
+
+        menuBar.add(menuVenda);
 
         menuSair.setMnemonic('h');
         menuSair.setText("Sair");
@@ -88,13 +98,13 @@ public class PrincipalVIEW extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1024, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 1576, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(desktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 842, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -112,6 +122,10 @@ public class PrincipalVIEW extends javax.swing.JFrame {
     private void itemMenuProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuProdutoActionPerformed
         abreProdutoVIEW();
     }//GEN-LAST:event_itemMenuProdutoActionPerformed
+
+    private void itemMenuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVendaActionPerformed
+        abreVendaVIEW();
+    }//GEN-LAST:event_itemMenuVendaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,14 +185,22 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         produtoVIEW.setPosicao();
     }
     
+    private void abreVendaVIEW(){
+        VendaVIEW vendaVIEW = new VendaVIEW();
+        this.desktopPane.add(vendaVIEW);
+        vendaVIEW.setVisible(true);
+        vendaVIEW.setPosicao();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem itemMenuAssinante;
     private javax.swing.JMenuItem itemMenuProduto;
-    private javax.swing.JMenu itemMenuVenda;
+    private javax.swing.JMenuItem itemMenuVenda;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuSair;
+    private javax.swing.JMenu menuVenda;
     // End of variables declaration//GEN-END:variables
 
 }
