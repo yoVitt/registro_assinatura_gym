@@ -15,7 +15,7 @@ import br.com.registro_assinatura.dao.ConexaoDAO;
 
 /**
  *
- * @author Aluno
+ * @author starrk
  */
 public class RegistroAssinante extends javax.swing.JInternalFrame {
 

@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Aluno
+ * @author starrk
  */
 public class PrincipalVIEW extends javax.swing.JFrame {
 // MEU DEUS DO CEU
@@ -36,16 +36,25 @@ public class PrincipalVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        desktopPane = new javax.swing.JDesktopPane();
+        ImageIcon imageicon = new ImageIcon(getClass().getResource("imagens/Arnold.png"));
+        Image image = imageicon.getImage();
+        desktopPane = new javax.swing.JDesktopPane(){
+            public void paintComponent(Graphics graphics){
+                graphics.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
         menuBar = new javax.swing.JMenuBar();
         menuCadastro = new javax.swing.JMenu();
         itemMenuAssinante = new javax.swing.JMenuItem();
         itemMenuProduto = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuVenda = new javax.swing.JMenu();
         itemMenuVenda = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        desktopPane.setToolTipText("");
 
         menuCadastro.setMnemonic('f');
         menuCadastro.setText("Cadastro");
@@ -66,6 +75,14 @@ public class PrincipalVIEW extends javax.swing.JFrame {
             }
         });
         menuCadastro.add(itemMenuProduto);
+
+        jMenuItem1.setText("Funcionario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuCadastro.add(jMenuItem1);
 
         menuBar.add(menuCadastro);
 
@@ -126,6 +143,10 @@ public class PrincipalVIEW extends javax.swing.JFrame {
     private void itemMenuVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuVendaActionPerformed
         abreVendaVIEW();
     }//GEN-LAST:event_itemMenuVendaActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        abreFuncionarioVIEW();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,11 +213,19 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         vendaVIEW.setPosicao();
     }
     
+    private void abreFuncionarioVIEW(){
+        FuncionarioVIEW funcionarioVIEW = new FuncionarioVIEW();
+        this.desktopPane.add(funcionarioVIEW);
+        funcionarioVIEW.setVisible(true);
+        funcionarioVIEW.setPosicao();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem itemMenuAssinante;
     private javax.swing.JMenuItem itemMenuProduto;
     private javax.swing.JMenuItem itemMenuVenda;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuSair;

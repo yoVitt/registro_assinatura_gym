@@ -20,7 +20,7 @@ import java.util.Date;
 
 /**
  *
- * @author stark
+ * @author starrk
  */
 public class VendaVIEW extends javax.swing.JInternalFrame {
 
@@ -265,6 +265,11 @@ public class VendaVIEW extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        jtl_consultar_ass.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtl_consultar_assMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(jtl_consultar_ass);
@@ -588,6 +593,10 @@ public class VendaVIEW extends javax.swing.JInternalFrame {
             liberaBotoes(true, false, false, true);
         }
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void jtl_consultar_assMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtl_consultar_assMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtl_consultar_assMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

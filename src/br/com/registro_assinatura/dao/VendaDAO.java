@@ -12,7 +12,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author stark
+ * @author starrk
  */
 public class VendaDAO {
     
