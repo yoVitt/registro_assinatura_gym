@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
+import br.com.registro_assinatura.dto.FuncionarioDTO;
 
 /**
  *
@@ -22,11 +23,13 @@ public class PrincipalVIEW extends javax.swing.JFrame {
     /**
      * Creates new form PrincipalVIEW
      */
-    public PrincipalVIEW() {
+    public PrincipalVIEW(FuncionarioDTO funcionarioDTO) {
         initComponents();
         this.setLocationRelativeTo(null);
+        if(funcionarioDTO.getTipo_fun().equalsIgnoreCase("COMUM")){
+            itemMenuFuncionario.setVisible(false);
+        }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,7 +50,7 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         menuCadastro = new javax.swing.JMenu();
         itemMenuAssinante = new javax.swing.JMenuItem();
         itemMenuProduto = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        itemMenuFuncionario = new javax.swing.JMenuItem();
         menuVenda = new javax.swing.JMenu();
         itemMenuVenda = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
@@ -76,13 +79,13 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         });
         menuCadastro.add(itemMenuProduto);
 
-        jMenuItem1.setText("Funcionario");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        itemMenuFuncionario.setText("Funcionario");
+        itemMenuFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                itemMenuFuncionarioActionPerformed(evt);
             }
         });
-        menuCadastro.add(jMenuItem1);
+        menuCadastro.add(itemMenuFuncionario);
 
         menuBar.add(menuCadastro);
 
@@ -144,44 +147,13 @@ public class PrincipalVIEW extends javax.swing.JFrame {
         abreVendaVIEW();
     }//GEN-LAST:event_itemMenuVendaActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void itemMenuFuncionarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemMenuFuncionarioActionPerformed
         abreFuncionarioVIEW();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_itemMenuFuncionarioActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalVIEW.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalVIEW().setVisible(true);
-            }
-        });
-    }
 
     private void sair(){
         Object[] options = { "Sair", "Cancelar"};
@@ -223,9 +195,9 @@ public class PrincipalVIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenuItem itemMenuAssinante;
+    private javax.swing.JMenuItem itemMenuFuncionario;
     private javax.swing.JMenuItem itemMenuProduto;
     private javax.swing.JMenuItem itemMenuVenda;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastro;
     private javax.swing.JMenu menuSair;

@@ -56,7 +56,7 @@ public class FuncionarioDAO {
                     + "login_fun = '" + funcionarioDTO.getLogin_fun() + "', ";
             
             if(funcionarioDTO.getSenha_fun() != null){
-                comando += "senha_fun = crypt ('" + funcionarioDTO.getSenha_fun() + "',gen_salt('bf', 8)). ";
+                comando += "senha_fun = crypt ('" + funcionarioDTO.getSenha_fun() + "',gen_salt('bf', 8)), ";
                 
             }
             
