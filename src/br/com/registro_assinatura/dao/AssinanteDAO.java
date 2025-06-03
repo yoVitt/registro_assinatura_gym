@@ -34,8 +34,8 @@ public boolean inserirAssinante(AssinanteDTO assinanteDTO){
                     "'" + assinanteDTO.getBairro_ass()+ "', "+
                     "'" + assinanteDTO.getDataIni_ass()+ "', "+
                     "'" + assinanteDTO.getTipo_assinatura()+ "', "+
-                     + assinanteDTO.getTelEmer_ass()+ ", "+
-                     + assinanteDTO.getTel_ass()+ ") ";
+                    "'" + assinanteDTO.getTelEmer_ass()+ "', "+
+                    "'" + assinanteDTO.getTel_ass()+ "') ";
         stmt.execute(comando.toUpperCase());
         
         ConexaoDAO.con.commit();

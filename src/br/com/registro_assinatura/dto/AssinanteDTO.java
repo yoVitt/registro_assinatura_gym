@@ -7,8 +7,8 @@ package br.com.registro_assinatura.dto;
 
 
 public class AssinanteDTO {
-    private String bairro_ass, dataIni_ass, logra_ass, nome_ass, tipo_assinatura;
-    private int telEmer_ass, tel_ass, id_ass;
+    private String bairro_ass, dataIni_ass, logra_ass, nome_ass, tipo_assinatura, telEmer_ass, tel_ass;
+    private int id_ass;
 
     public int getId_ass() {
         return id_ass;
@@ -42,6 +42,22 @@ public class AssinanteDTO {
         this.logra_ass = logra_ass;
     }
 
+    public String getTelEmer_ass() {
+        return telEmer_ass;
+    }
+
+    public void setTelEmer_ass(String telEmer_ass) {
+        this.telEmer_ass = telEmer_ass;
+    }
+
+    public String getTel_ass() {
+        return tel_ass;
+    }
+
+    public void setTel_ass(String tel_ass) {
+        this.tel_ass = tel_ass;
+    }
+
     public String getNome_ass() {
         return nome_ass;
     }
@@ -58,20 +74,4 @@ public class AssinanteDTO {
         this.tipo_assinatura = tipo_assinatura;
     }
 
-    public int getTelEmer_ass() {
-        return telEmer_ass;
-    }
-
-    public void setTelEmer_ass(int telEmer_ass) {
-        this.telEmer_ass = telEmer_ass;
-    }
-
-    public int getTel_ass() {
-        return tel_ass;
-    }
-
-    public void setTel_ass(int tel_ass) {
-        this.tel_ass = tel_ass;
-    }
-    
 }

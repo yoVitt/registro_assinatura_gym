@@ -283,11 +283,12 @@ public class RegistroAssinante extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel5)
                                 .addComponent(tipo_assinatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(telEmer_ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dataIni_ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(dataIni_ass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel4)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -401,8 +402,8 @@ liberaBotoes(false, true, true, true, true);
             assinanteDTO.setNome_ass(nome_ass.getText());
             assinanteDTO.setLogra_ass(logra_ass.getText());
             assinanteDTO.setBairro_ass(bairro_ass.getText());
-            assinanteDTO.setTelEmer_ass(Integer.parseInt(telEmer_ass.getText()));
-            assinanteDTO.setTel_ass(Integer.parseInt(tel_ass.getText()));
+            assinanteDTO.setTelEmer_ass(telEmer_ass.getText());
+            assinanteDTO.setTel_ass(tel_ass.getText());
             assinanteDTO.setDataIni_ass(dataIni_ass.getText());
             assinanteDTO.setTipo_assinatura(tipo_assinatura.getSelectedItem().toString());
             
@@ -444,8 +445,8 @@ liberaBotoes(false, true, true, true, true);
             assinanteDTO.setLogra_ass(logra_ass.getText());
             assinanteDTO.setBairro_ass(bairro_ass.getText());
             assinanteDTO.setDataIni_ass(dataIni_ass.getText());
-            assinanteDTO.setTelEmer_ass(Integer.parseInt(telEmer_ass.getText()));
-            assinanteDTO.setTel_ass(Integer.parseInt(tel_ass.getText()));
+            assinanteDTO.setTelEmer_ass(telEmer_ass.getText());
+            assinanteDTO.setTel_ass(tel_ass.getText());
             assinanteDTO.setTipo_assinatura(tipo_assinatura.getSelectedItem().toString());
             
             JOptionPane.showMessageDialog(null, assinanteCTR.alterarAssinante(assinanteDTO));
